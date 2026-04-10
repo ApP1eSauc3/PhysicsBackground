@@ -1,0 +1,16 @@
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Xcode
+*.xcuserstate
+xcuserdata/
+DerivedData/
+*.xcworkspace/xcuserdata/
+*.moved-aside
+
+# macOS
+.DS_Store
+
+# Local Claude Code guide — not part of the public project
+CLAUDE.md
