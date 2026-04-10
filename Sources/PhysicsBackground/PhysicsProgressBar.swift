@@ -80,27 +80,31 @@ public struct PhysicsProgressBar: View {
 
 #if DEBUG
 #Preview {
-    @Previewable @State var progress: Double = 0.6
+    struct Demo: View {
+        @State var progress: Double = 0.6
+        var body: some View {
+            VStack(spacing: 24) {
+                Text("PhysicsProgressBar")
+                    .font(.system(.headline, design: .rounded).weight(.bold))
+                    .foregroundStyle(.white)
 
-    VStack(spacing: 24) {
-        Text("PhysicsProgressBar")
-            .font(.system(.headline, design: .rounded).weight(.bold))
-            .foregroundStyle(.white)
+                PhysicsProgressBar(progress: progress, preset: .labyrinth, lighting: .dramatic)
+                    .frame(height: 10)
 
-        PhysicsProgressBar(progress: progress, preset: .labyrinth, lighting: .dramatic)
-            .frame(height: 10)
+                PhysicsProgressBar(progress: progress, preset: .coral, lighting: .soft)
+                    .frame(height: 6)
 
-        PhysicsProgressBar(progress: progress, preset: .coral, lighting: .soft)
-            .frame(height: 6)
+                PhysicsProgressBar(progress: progress, preset: .turbulence, lighting: .default)
+                    .frame(height: 14)
 
-        PhysicsProgressBar(progress: progress, preset: .turbulence, lighting: .default)
-            .frame(height: 14)
-
-        Slider(value: $progress, in: 0...1)
-            .tint(.white)
+                Slider(value: $progress, in: 0...1)
+                    .tint(.white)
+            }
+            .padding(32)
+            .background(Color.black)
+            .preferredColorScheme(.dark)
+        }
     }
-    .padding(32)
-    .background(Color.black)
-    .preferredColorScheme(.dark)
+    return Demo()
 }
 #endif
